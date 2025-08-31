@@ -7,12 +7,12 @@
   <div class="type_list">
     {% for type in transporttype %}
       <div class="type_detail">
-        <div>
+        <!-- <div>
           {% if type.image %}
             {% load static %}
             <img src="{{ type.image.url }}" alt="type_image">
           {% endif %}
-        </div>
+        </div> -->
 
         <p>Transport Type Name: {{ type.name }}</p>
         <p>Transport Type Code: {{ type.code }}</p>

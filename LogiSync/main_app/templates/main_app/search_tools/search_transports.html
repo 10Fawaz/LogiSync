@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if searched %}
+
+    {% for trans in transports %}
+    <div class="search">
+      <p class="searched-text">
+        <ul>
+        {% load static %}
+        <img src="{% static trans.image %}" alt="transport-image">
+
+        
+        {% csrf_token %}
+        {{ form.as_p }} 
+      </ul>
+
+      </p>
+    </div>
+    {% endfor %}
+  
+
+  {% else %}
+  <h2>Hey! You Forgot To Search For A Venue...</h2>
+  {% endif %}
+{% endblock %}

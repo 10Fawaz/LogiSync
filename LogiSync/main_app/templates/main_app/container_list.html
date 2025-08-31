@@ -3,11 +3,50 @@
 <div class="page-header">
   <h2>Containers List</h2>
 </div>
+<br />
+
+<form class="d-flex" method="POST" action="{% url 'container_list' %}">
+  {% csrf_token %}
+
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search Container"
+    aria-label="Search"
+    name="searched"
+  />
+  <button class="btn btn-outline-secondary" type="submit">Search</button>
+</form>
+
+<br />
+<br />
 
 <div class="container-list">
-  {% for container in container_list %}
+  {% if search_result %}
+
+  <p><strong>Code:</strong> {{ search_result.code }}</p>
+  <p>
+    <strong>Container Location:</strong> {{ search_result.tracking_location }}
+  </p>
+  <p><strong>Weight Capacity:</strong> {{ search_result.weight_capacity }}</p>
+  <p>
+    <strong>Current Weight Capacity:</strong> {{
+    search_result.currnt_weight_capacity }}
+  </p>
+  <p><strong>Description:</strong> {{ search_result.description }}</p>
+
+  <button>
+    <a href="{% url 'container_detail' search_result.id %}">Show Detail</a>
+  </button>
+
+  {% else %} 
+  {% for container in containers %}
   <div class="container-card">
     <div class="container-info">
+      <div class="field">
+        <label>Container Code</label>
+        <p>{{ container.code }}</p>
+      </div>
       <div class="field">
         <label>Tracking Location</label>
         <p>{{ container.tracking_location }}</p>
@@ -27,7 +66,8 @@
   </div>
   {% empty %}
   <p>No Containers Available</p>
-  {% endfor %}
+  {% endfor %} 
+  {% endif %}
 </div>
 
 {% endblock %}

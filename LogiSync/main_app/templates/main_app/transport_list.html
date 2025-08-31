@@ -1,13 +1,45 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>transport List</h1>
+<h1>Transport List</h1>
+
+<br />
+
+<form class="d-flex" method="POST" action="{% url 'transport_list' %}">
+  {% csrf_token %}
+
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search Transport"
+    aria-label="Search"
+    name="searched"
+  />
+  <button class="btn btn-outline-secondary" type="submit">Search</button>
+</form>
+
+<br />
+<br />
+
+<div class="container-list">
+  {% if search_result %}
+  
+  <p><strong>Code:</strong> {{ search_result.code }}</p>
+
+  <p><strong>Source:</strong> {{ search_result.source }}</p>
+  <p><strong>Destination:</strong> {{ search_result.destination }}</p>
+  <p><strong>Description:</strong> {{ search_result.description }}</p>
+
+  <button>
+    <a href="{% url 'container_detail' search_result.id %}">Show Detail</a>
+  </button>
+</div>
 
 {% for transport in transport_list %}
 <div class="card">
   <a href="{% url 'transport_detail' transport.id %}">
   <div class="card-content">
     <span class="card-title"> {{transport.name}} </span>
-    <p>name: {{transport.name}}</p>
+    <p>driver name: {{transport.driver}}</p>
     <p>description: {{transport.description}}</p>
   </div>
   </a>

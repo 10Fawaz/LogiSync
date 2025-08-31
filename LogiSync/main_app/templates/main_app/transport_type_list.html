@@ -4,10 +4,10 @@
   <form action="{% url 'transport_type_update'%}" enctype="multipart/form-data">
   
   <div class="type_detail">
-    <div>
+    <!-- <div>
       {% load static %}
       <img src="{% static transporttype.image %}" alt="type_image">
-    </div>
+    </div> -->
 
     <p>Transport Type Name: {{ transporttype.name }}</p>
     <p>Transport Type Code: {{ transporttype.code }}</p>

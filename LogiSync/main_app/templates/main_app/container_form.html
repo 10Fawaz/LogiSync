@@ -16,6 +16,47 @@
       {{ form.as_table }}
     </table>
     <input type="submit" value="Submit!" class="btn">
+
+      <br>
+      <br>
+
+  
+
+      <div class="container-list">
+        <div class="page-header">
+          <h2>Containers List</h2>
+        </div>
+
+        <div class="container-list">
+          {% for container in containers %}
+          <div class="container-card">
+            <div class="container-info">
+              <div class="field">
+                <label>Tracking Location</label>
+                <p>{{ container.tracking_location }}</p>
+              </div>
+              <div class="field">
+                <label>Weight</label>
+                <p>{{ container.weight }}</p>
+              </div>
+              <div class="field">
+                <label>Description</label>
+                <p>{{ container.description }}</p>
+              </div>
+              <div class="field">
+                <a href="{% url 'container_detail' container.pk %}"
+                  >More Details</a
+                >
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <p>No Containers Available</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
   </form>
 </div>
 

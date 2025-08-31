@@ -9,7 +9,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     
 # -------------------------------------------------------------- containers --------------------------------------------------------------
-    path('containers/', views.ContainerList.as_view(), name='container_list'),
+    path('containers/', views.ContainerList, name='container_list'),
     path('containers/create/', views.ContainerCreate.as_view(), name='container_create' ),
     path('containers/<int:container_id>/', views.ContainerDetail, name='container_detail' ),
     path('containers/<int:container_id>/location', views.ContainerLocation, name='container_location' ),
@@ -20,7 +20,7 @@ urlpatterns = [
     path('containers/<int:container_id>/unassoc_package/<int:package_id>',views.unassoc_package,name='unassoc_package'),
     
 # -------------------------------------------------------------- Transport --------------------------------------------------------------
-    path('transports/',views.TransportList.as_view(), name='transport_list' ),
+    path('transports/',views.TransportList, name='transport_list' ),
     path('transports/create/', views.TransportCreate.as_view(), name='transport_create'),
     path('transports/<int:pk>/', views.TransportDetails.as_view(), name='transport_detail'),
     path('transports/<int:pk>/update/', views.TransportUpdate.as_view(), name='transports_update'),
@@ -44,10 +44,17 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('profile/', views.profile_detail, name='profile_detail'),
     path('profile/edit/', views.edit_profile, name='edit_profile'),
+
+
+# -------------------------------------------------------------- features --------------------------------------------------------------
+    # path('search_transports', views.search_transports, name='search_transports'),
+
+
 # -------------------------------------------------------------- locations(testing) --------------------------------------------------------------
     path('location/', views.map, name='map'),
 
     path('location/save',views.location_save,name='location_save'),
     path('location/load',views.location_load,name='location_load'),
     # path('location/load',views.location_load,name='location_load'),
+
 ]
