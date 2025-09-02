@@ -13,8 +13,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ProfileForm, CreationForm, AssignDriverForm
 from .utils import generate_sequential_code
-
-#################### QR code  ###########################
 import qrcode
 from io import BytesIO
 
@@ -63,8 +61,6 @@ listOfPackags = [
 
 # Create your views here.
 
-
-# Authorization
 # ----------------------------------------  Authorization  ----------------------------------------
 
 
@@ -308,7 +304,6 @@ def assoc_container(request, transport_id, container_id):
     return redirect('transport_detail',transport_id=transport_id)
 
 @login_required
-@login_required
 def unassoc_container(request, transport_id, container_id):
     if(request.user.profile.role=='driver'):
         return redirect('https://youtu.be/xvFZjo5PgG0?si=IuE07tywqKYoohhA')
@@ -515,7 +510,7 @@ def edit_profile(request):
         form = ProfileForm(instance=profile)
     return render(request, 'profile_edit.html' , {'form': form})
 
-####################    ADDITIONAL FEATURES  ###########################
+# ----------------------------------------  ADDITIONAL FEATURES   ----------------------------------------
 
 def qr_code(request, pk):
     transport = Transport.objects.get(pk=pk)

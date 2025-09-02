@@ -98,30 +98,3 @@ class Transport(models.Model):
         return reverse('transport_detail', kwargs={'transport_id': self.id})
         
 
-# -------------------------------------------------------------- Container --------------------------------------------------------------
-# class Container(models.Model):
-#     latitude = models.FloatField(default=0)
-#     longitude= models.FloatField(default=0)
-#     description = models.TextField(max_length=255)
-#     weight_capacity = models.FloatField(default=0)
-#     currnt_weight_capacity = models.FloatField(default=0)
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     code = models.CharField(max_length=50)
-#     transport = models.ForeignKey(Transport, on_delete=models.SET_NULL, null=True, blank=True)
-#     inTrancport=models.BooleanField(default=False)
-    
-#     def get_absolute_url(self):
-#         return reverse('container_detail', kwargs={'container_id': self.id})
-    
-#     # def __str__(self):
-#     #     return f"Container {self.id} - {self.tracking_location}"
-
-# class Package(models.Model):
-#     code=models.CharField(max_length=20)
-#     owner=models.CharField(max_length=50)
-#     description=models.TextField(max_length=250)
-#     price=models.IntegerField()
-#     weight=models.FloatField()
-#     receivedDate=models.DateField()
-#     container = models.ForeignKey(Container, on_delete=models.SET_NULL, null=True, blank=True)
-#     inContainer=models.BooleanField(default=False)
