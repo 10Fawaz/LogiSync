@@ -102,8 +102,13 @@ Deployed on **Heroku**, LogiSync provides a modern and intuitive interface while
 ### 🔗 Live Site:
 👉 [Deployed Project Link](https://logisync-eadf6892bb3a.herokuapp.com/) 
 
-### 🧩 QR code Board:
-📌 [Trello Board](https://trello.com/b/zo6OdEIF/logisync) 
+### Demo Accounts
+
+| Role       | Username    | Password    |
+| -------    | --------    | ----------- |
+| Admin      | admin       | 12345678    |
+| Superviosr | supervisor  | Feras@2234@ |
+| Driver     | driver      | Feras@2234@ |
 
 ---
 
